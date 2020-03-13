@@ -6,6 +6,8 @@ class City:
     self.name = name
     self.lat = lat
     self.lon = lon
+  # def __repr__(self):
+  #   return repr(self.name, self.lat, self.lon)
   def __str__(self):
     return f"{self.name}, {self.lat}, {self.lon}"
 
@@ -33,7 +35,7 @@ def cityreader(cities=[]):
     readCSV = csv.reader(csvfile, delimiter=',')
     for city in readCSV:
       if city[0] != "city":
-        new_city = City(city[0], city[3], city[4])
+        new_city = City(city[0], float(city[3]), float(city[4]))
         cities.append(new_city)
   return cities
 
